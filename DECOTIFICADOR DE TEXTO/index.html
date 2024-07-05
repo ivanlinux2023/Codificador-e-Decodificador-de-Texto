@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codificador e Decodificador de Texto Desenvolvido</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Codificador e Decodificador de Texto</h1>
+        <textarea id="inputText" placeholder="Digite o texto..."></textarea>
+        <div class="buttons">
+            <button onclick="encodeText()">Codificar</button>
+            <button onclick="decodeText()">Decodificar</button>
+        </div>
+        <div id="outputText"></div>
+    </div>
+
+    <script>
+        function encodeText() {
+            const inputText = document.getElementById('inputText').value;
+            const outputText = btoa(inputText); // Codificação Base64
+            document.getElementById('outputText').innerText = outputText;
+        }
+
+        function decodeText() {
+            const inputText = document.getElementById('inputText').value;
+            try {
+                const outputText = atob(inputText); // Decodificação Base64
+                document.getElementById('outputText').innerText = outputText;
+            } catch (e) {
+                document.getElementById('outputText').innerText = "Erro: Texto inválido para decodificação!";
+            }
+        }
+    </script>
+</body>
+</html>
